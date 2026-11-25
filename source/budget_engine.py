@@ -1,8 +1,8 @@
-"""Interface for extracting structured terms from vendor contracts."""
+"""Deterministic financial and budget calculation interface (non-AI code)."""
 
-from source.models import ContractTerms
+from source.models import BudgetSummary, ContractTerms
 
 
-def extract_contract_terms(contract_text: str) -> ContractTerms:
-    """Extract key financial and contract terms from raw contract text."""
-    pass
+def calculate_remaining_balance(total_budget: float, contracts: list[ContractTerms]) -> BudgetSummary:
+    """Calculate committed totals, remaining budget balance, and any overrun."""
+    pass  
