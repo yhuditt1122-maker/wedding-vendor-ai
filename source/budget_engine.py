@@ -1,8 +1,7 @@
-"""Deterministic financial and budget calculation interface (non-AI code)."""
-
-from source.models import BudgetSummary, ContractTerms
-
+﻿from source.models import BudgetSummary, ContractTerms
 
 def calculate_remaining_balance(total_budget: float, contracts: list[ContractTerms]) -> BudgetSummary:
-    """Calculate committed totals, remaining budget balance, and any overrun."""
-    pass  
+    committed = sum(contract.total_amount for contract in contracts)
+    remaining = total_budget - committed
+    overrun = abs(remaining) if remaining < 0 else 0.0
+    return BudgetSummary(total_budget=total_budget, committed_amount=committed, remaining_balance=max(remaining, 0.0), overrun_amount=overrun)
